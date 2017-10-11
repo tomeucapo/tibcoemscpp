@@ -26,7 +26,7 @@ void SimpleRpcServer::RespondToMessage(TibcoMessage::ptr_t request, TibcoMessage
 			 response->CorrelationId(request->CorrelationId());
 		session->BasicPublish(request->ReplyTo(), response);	 
 	 } catch ( std::logic_error &e ) {
-	    Logger::Error(e.what());
+		 // TODO: Can add logger
 	 }
 }
 
