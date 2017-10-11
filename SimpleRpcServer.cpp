@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "SimpleRpcServer.h"
-#include "Logger.h"
 #include "boost/lexical_cast.hpp"
 
 using namespace TibcoEMSClient;
@@ -15,7 +14,6 @@ bool SimpleRpcServer::GetNextIncomingMessage(TibcoMessage::ptr_t &nextMsg)
 	try {
 		nextMsg = session->BasicConsumeMessage();
 	} catch ( std::logic_error &e ) {
-		Logger::Error(e.what());
 		return false;
 	}
 	return true;
