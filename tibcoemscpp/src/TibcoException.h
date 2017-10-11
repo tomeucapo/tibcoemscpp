@@ -6,7 +6,7 @@ namespace TibcoEMSClient
 	class TibcoException :
 		public std::runtime_error
 	{
-	public:		
+	public:
 		explicit TibcoException(const std::string &what, const std::string &reply_text, boost::uint16_t class_id, boost::uint16_t method_id) throw();
 		virtual ~TibcoException() throw() {}
 
@@ -35,7 +35,7 @@ namespace TibcoEMSClient
 	{
 	public:
 		explicit ConnectionException(const std::string &what, const std::string &reply_text, boost::uint16_t class_id, boost::uint16_t method_id) throw() :
-		TibcoException(what, reply_text, class_id, method_id) {}
+			TibcoException(what, reply_text, class_id, method_id) {}
 
 		virtual bool is_soft_error() const throw()
 		{

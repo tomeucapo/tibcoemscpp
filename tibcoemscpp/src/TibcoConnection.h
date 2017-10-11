@@ -10,10 +10,10 @@ namespace TibcoEMSClient
 	{
 	private:
 		tibemsErrorContext gErrorContext;
-		tibemsConnection connection;	
+		tibemsConnection connection;
 
 	public:
-	    typedef boost::shared_ptr<TibcoConnection> ptr_t;
+		typedef boost::shared_ptr<TibcoConnection> ptr_t;
 
 		static ptr_t Create(const std::string &url = "tcp://127.0.0.1:7222")
 		{
@@ -36,11 +36,11 @@ namespace TibcoEMSClient
 		tibemsMsgConsumer consumer;
 		TibcoConnection::ptr_t conn;
 
-		typedef boost::unordered_map<std::string, tibemsMsgProducer> ProducersMap;		
+		typedef boost::unordered_map<std::string, tibemsMsgProducer> ProducersMap;
 		ProducersMap producers;
 
 	public:
-	    typedef boost::shared_ptr<TibcoSession> ptr_t;	
+		typedef boost::shared_ptr<TibcoSession> ptr_t;
 
 		friend ptr_t boost::make_shared<TibcoSession>(TibcoConnection::ptr_t const &a1);
 
@@ -48,7 +48,7 @@ namespace TibcoEMSClient
 		{
 			return boost::make_shared<TibcoSession>(conn);
 		}
-	
+
 	private:
 		tibemsMsgProducer GetProducer(const std::string &destName, const tibemsDestination &dest);
 
@@ -60,7 +60,7 @@ namespace TibcoEMSClient
 		void BasicConsumer(const std::string &queue_name);
 		void BasicProducer(const std::string &queue_name);
 		tibemsMsgRequestor BasicRequestor(const tibemsDestination &dest);
-		
+
 		TibcoMessage::ptr_t BasicConsumeMessage();
 		void BasicPublish(const tibemsDestination &dest, TibcoMessage::ptr_t msgResponse);
 	};

@@ -33,11 +33,11 @@ namespace TibcoEMSClient
 		}
 
 		bool GetNextIncomingMessage(TibcoMessage::ptr_t &nextMsg);
-		
+
 		void RespondToMessage(TibcoMessage::ptr_t request, TibcoMessage::ptr_t response);
 		void RespondToMessage(TibcoMessage::ptr_t request, const std::string response);
 
-	private:		
+	private:
 		TibcoSession::ptr_t session;
 		const std::string m_incoming_tag;
 	};

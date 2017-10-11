@@ -16,8 +16,8 @@ namespace TibcoEMSClient
 	class TibcoMessage : boost::noncopyable
 	{
 	private:
-		tibemsMsg message;		
-	
+		tibemsMsg message;
+
 	public:
 		typedef boost::shared_ptr<TibcoMessage> ptr_t;
 
